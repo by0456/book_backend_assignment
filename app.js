@@ -49,7 +49,7 @@ app.post('/users/login', users.login);
 app.get('/users/me/access-token', VerifySession.verifySession, users.getAccessToken);
 
 app.get('/booksearch', googleapi.doBookSearch);
-app.get('/favourite', Authenticate.authenticate, favourite.getFavourite);
+app.get('/favourite', favourite.getFavourite);
 app.get('/favourite/:id', Authenticate.authenticate, favourite.getFavouriteDetails);
 app.post('/favourite', Authenticate.authenticate, favourite.addFavourite);
 app.delete('/favourite/:id', Authenticate.authenticate, favourite.deleteFavourite);
