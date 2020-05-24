@@ -9,10 +9,9 @@ VerifySession.verifySession;
 
 exports.checkUserExists = (req, res) => {
 
-    User.find({
-        email: req.body.email,
-        password: req.body.password
-    }).then((user) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    User.findByCredentials(email, password).then((user) => {
         res.send(user);
     }).catch((e) => {
         res.send(e);
