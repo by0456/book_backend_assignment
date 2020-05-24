@@ -11,8 +11,6 @@ exports.checkUserExists = (req, res) => {
 
     let email = req.body.email;
     let password = req.body.password;
-    console.log(email);
-    console.log(password);
     User.findByCredentials(email, password).then((user) => {
         res.send(user);
     }).catch((e) => {
