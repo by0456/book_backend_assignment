@@ -6,7 +6,7 @@ const { Favourite, User, BookComment, BookScore } = require('../db/models');
 
 exports.getFavourite = (req, res) => {
     Favourite.find({
-        _userId: req.user_id
+        //_userId: req.user_id
     }).then((lists) => {
         res.send(lists);
     }).catch((e) => {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const URI = "mongodb+srv://dbUser:dbUser@cluster0-hmpcl.mongodb.net/BookShop?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}).then(() => {
+mongoose.connect(process.env.MONGODB_URI || URI, {useNewUrlParser: true}).then(() => {
     console.log("Connected ot MongoDB successfully")
 
 }).catch((e)=>{
