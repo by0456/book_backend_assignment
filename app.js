@@ -43,6 +43,8 @@ app.get('/', (req, res) => {
     res.send('welcome');
 });
 
+app.get('/users', users.checkUserExists);
+app.get('/users/email', users.checkEmailExists);
 app.post('/users', users.register);
 app.post('/users/login', users.login);
 app.get('/users/me/access-token', VerifySession.verifySession, users.getAccessToken);

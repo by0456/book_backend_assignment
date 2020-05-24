@@ -7,6 +7,29 @@ const VerifySession = require('./verifySession');
 
 VerifySession.verifySession;
 
+exports.checkUserExists = (req, res) => {
+
+    User.find({
+        email: req.body.email,
+        password: req.body.password
+    }).then((user) => {
+        res.send(user);
+    }).catch((e) => {
+        res.send(e);
+    });
+}
+
+exports.checkEmailExists = (req, res) => {
+
+    User.find({
+        email: req.body.email,
+    }).then((user) => {
+        res.send(user);
+    }).catch((e) => {
+        res.send(e);
+    });
+}
+
 exports.register = (req, res) => {
 
     let body = req.body;
